@@ -2,8 +2,8 @@
 
 $mysqli = require __DIR__ . "/database.php";
 
-$sql = "INSERT INTO user (name, email, password_hash)
-        VALUES (?, ?, ?)";
+$sql = "INSERT INTO profiles (firstname, lastname, date_of_birth, street_number, street_name, suburb, city, state, country, spouse_name, number_of_dependents, course_1st_choice, course_2nd_choice)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = $mysqli->stmt_init();
 
@@ -12,14 +12,25 @@ if (!$stmt->prepare($sql)) {
 }
 
 $stmt->bind_param(
-    "sss",
-    $_POST["name"],
-    $_POST["email"],
-    $password_hash
+    "sssssssssssss",
+    $_POST["firstname"],
+    $_POST["lastname"],
+    $_POST["date_of_birth"],
+    $_POST["street_number"],
+    $_POST["street_name"],
+    $_POST["suburb"],
+    $_POST["city"],
+    $_POST["state"],
+    $_POST["country"],
+    $_POST["spouse_name"],
+    $_POST["number_of_dependents"],
+    $_POST["course_1st_choice"],
+    $_POST["course_2nd_choice"],
+
 );
 
 if ($stmt->execute()) {
 
-    header("Location: signup-success.html");
+    header("Location: index.php");
     exit;
 }
