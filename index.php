@@ -33,6 +33,8 @@ if (isset($_SESSION["user_id"])) {
 
         <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
 
+        <p><a href="profile.html">Update Profile</a></p>
+
         <p><a href="logout.php">Log out</a></p>
 
     <?php else : ?>
