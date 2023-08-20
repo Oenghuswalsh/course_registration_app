@@ -7,7 +7,7 @@ if (isset($_SESSION["user_id"])) {
   $mysqli = require __DIR__ . "/database.php";
 
   $sql = "SELECT * FROM user
-            WHERE id = {$_SESSION["user_id"]}";
+            WHERE user_id = {$_SESSION["user_id"]}";
 
   $result = $mysqli->query($sql);
 
@@ -20,7 +20,7 @@ if (isset($_SESSION["user_id"])) {
 
 <head>
   <meta charset="UTF-8" />
-  <title>Signup</title>
+  <title>Profile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
 </head>
@@ -101,18 +101,12 @@ if (isset($_SESSION["user_id"])) {
       <input type="number" id="number_of_dependents" name="number_of_dependents" />
     </div>
 
-    <div>
-      <label for="course_1st_choice">Course 1st choice</label>
-      <input type="text" id="course_1st_choice" name="course_1st_choice" />
-    </div>
 
-    <div>
-      <label for="ccourse_2nd_choice">Course 2nd choice</label>
-      <input type="text" id="course_2nd_choice" name="course_2nd_choice" />
-    </div>
-
-    <button type="submit">Update Profile</button>
+    <button type="submit">Save</button>
   </form>
+  <button type="submit"><a href="family_profile.php">Add Family/Visa</a></button>
+  <button type="submit"><a href="logout.php">Course Selection</a></button>
+  <button type="submit"><a href="logout.php">Log out</a></button>
 </body>
 
 </html>

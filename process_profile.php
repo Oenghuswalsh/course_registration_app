@@ -2,8 +2,8 @@
 
 $mysqli = require __DIR__ . "/database.php";
 
-$sql = "INSERT INTO profiles (firstname, lastname, date_of_birth, street_number, street_name, suburb, city, state, country, spouse_name, number_of_dependents, course_1st_choice, course_2nd_choice)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO profiles (firstname, lastname, date_of_birth, street_number, street_name, suburb, city, state, country, spouse_name, number_of_dependents)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = $mysqli->stmt_init();
 
@@ -12,7 +12,7 @@ if (!$stmt->prepare($sql)) {
 }
 
 $stmt->bind_param(
-    "sssssssssssss",
+    "sssssssssss",
     $_POST["firstname"],
     $_POST["lastname"],
     $_POST["date_of_birth"],
@@ -24,13 +24,11 @@ $stmt->bind_param(
     $_POST["country"],
     $_POST["spouse_name"],
     $_POST["number_of_dependents"],
-    $_POST["course_1st_choice"],
-    $_POST["course_2nd_choice"],
 
 );
 
 if ($stmt->execute()) {
 
-    header("Location: index.php");
+    header("Location: profile.php");
     exit;
 }
