@@ -43,7 +43,7 @@ if (isset($_SESSION["user_id"])) {
                     <?= htmlspecialchars($profile["firstname"]) ?>
                 </p>
             <?php else : ?>
-                <p>No profile data available <a href="profile.php">Edit profile</a></p>
+                <h2>No profile data available <a href="profile.php" class="button">Edit profile</a></h2>
 
             <?php endif; ?>
             <form action="process_family_profile.php" method="post" id="family_profile" novalidate>
@@ -89,8 +89,8 @@ if (isset($_SESSION["user_id"])) {
             </form>
         </div>
         <div class="profileDetails actions">
-            <button type="submit"><a href="logout.php">Log out</a></button>
-            <button type="submit"><a href="profile.php">Profile page</a></button>
+            <a href="logout.php" class="button">Log out</a>
+            <a href="profile.php" class="button">Profile page</a>
         </div>
     </div>
 </body>

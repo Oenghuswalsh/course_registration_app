@@ -52,7 +52,7 @@ if (isset($_SESSION["user_id"])) {
           <?= htmlspecialchars($user["email"]) ?><br>
         </p>
       <?php else : ?>
-        <p><a href="login.php">Log in</a> or <a href="signup.html">sign up</a></p>
+        <p><a href="login.php" class="button">Log in</a> or <a href="signup.html" class="button">sign up</a></p>
       <?php endif; ?>
       <form action="process_profile.php" method="post" id="profile" novalidate>
         <div>
@@ -106,9 +106,9 @@ if (isset($_SESSION["user_id"])) {
       </form>
     </div>
     <div class="profileDetails actions">
-      <button type="submit"><a href="family_profile.php">Add Family/Visa</a></button>
-      <button type="submit"><a href="logout.php">Course Selection</a></button>
-      <button type="submit"><a href="logout.php">Log out</a></button>
+      <a href="family_profile.php" class="button">Add Family/Visa</a>
+      <a href="logout.php" class="button">Course Selection</a>
+      <a href="logout.php" class="button">Log out</a>
     </div>
     <div class="profile_details  profileDetails">
       <h2>Profile Details</h2>
