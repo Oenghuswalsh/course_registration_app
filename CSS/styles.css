@@ -11,8 +11,8 @@
   --border: #dbdbdb;
   --code: #000;
   --animation-duration: 0.1s;
-  --button-base: #d0cfcf;
-  --button-hover: #9b9b9b;
+  --button-base: #002fff;
+  --button-hover: #fd0404;
   --scrollbar-thumb: rgb(170, 170, 170);
   --scrollbar-thumb-hover: var(--button-hover);
   --form-placeholder: #949494;
@@ -26,9 +26,9 @@ body {
     "Helvetica Neue", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji",
     sans-serif;
   line-height: 1.4;
-  max-width: 800px;
-  margin: 20px 100;
-  padding: 0 10px;
+  max-width: 100%;
+  margin: 20px 30px;
+  padding: 0;
   word-wrap: break-word;
   color: #363636;
   color: var(--text-main);
@@ -86,13 +86,7 @@ form {
   display: block;
   margin-top: 0em;
 }
-input:not([type="checkbox"]):not([type="radio"]),
-input[type="range"],
-select,
-button,
-textarea {
-  -webkit-appearance: none;
-}
+
 input {
   vertical-align: top;
   color: #1d1d1d;
@@ -104,7 +98,7 @@ input {
   margin-right: 6px;
   margin-bottom: 6px;
   padding: 10px;
-  border: none;
+  border: 2px solid black;
   border-radius: 6px;
   outline: none;
   transition: background-color 0.1s linear, border-color 0.1s linear,
@@ -118,4 +112,68 @@ input {
 input,
 select {
   display: block;
+}
+label {
+  vertical-align: middle;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+button {
+  background-color: var(--button-base);
+  padding-right: 10px 30px 10px 30px;
+  color: #1d1d1d;
+  color: var(--form-text);
+  font-family: inherit;
+  font-size: inherit;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+button,
+select,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="checkbox"],
+input[type="range"],
+input[type="radio"] {
+  cursor: pointer;
+}
+button {
+  transition: background-color 0.1s linear, border-color 0.1s linear,
+    color 0.1s linear, box-shadow 0.1s linear, transform 0.1s ease;
+  transition: background-color var(--animation-duration) linear,
+    border-color var(--animation-duration) linear,
+    color var(--animation-duration) linear,
+    box-shadow var(--animation-duration) linear,
+    transform var(--animation-duration) ease;
+}
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #0076d1;
+  color: var(--links);
+}
+.profile_section {
+  display: flex; /* Use flexbox layout */
+  justify-content: space-between; /* Distribute inner divs with space between them */
+  align-items: start; /* Center align vertically within the container */
+  border: 1px solid #ccc; /* Just for visualization */
+  background-color: #0076d1;
+  padding: 30px;
+}
+
+.profileDetails {
+  width: 30%; /* Adjust the width of inner divs as needed */
+  background-color: #e1ff00;
+  padding: 20px;
+  border: 2px solid #ff00d0;
+  box-sizing: border-box; /* Include padding and border in the width */
+}
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }

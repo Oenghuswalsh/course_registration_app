@@ -42,26 +42,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8" />
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
+    <link rel="stylesheet" href="./CSS/styles.css">
 </head>
 
 <body>
 
     <h1>Login</h1>
 
-    <?php if ($is_invalid) : ?>
-        <em>Invalid login</em>
-    <?php endif; ?>
-
-    <form method="post">
-        <label for="email">email</label>
-        <input type="email" name="email" id="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
-
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-
-        <button type="submit">Log in</button>
-    </form>
+    <div class="profile_section">
+        <div class="profileDetails">
+            <?php if ($is_invalid) : ?>
+                <em>Invalid login</em>
+            <?php endif; ?>
+            <form method="post">
+                <label for="email">email</label>
+                <input type="email" name="email" id="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <button type="submit">Log in</button>
+            </form>
+        </div>
+    </div>
 
 </body>
 

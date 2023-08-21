@@ -19,6 +19,13 @@ if (isset($_SESSION["user_id"])) {
   $result = $mysqli->query($sql);
 
   $profile = $result->fetch_assoc();
+
+  $sql = "SELECT * FROM family_profile f
+  WHERE f.user_id = {$_SESSION["user_id"]}";
+
+  $result = $mysqli->query($sql);
+
+  $fprofile = $result->fetch_assoc();
 }
 
 ?>
@@ -29,15 +36,14 @@ if (isset($_SESSION["user_id"])) {
   <meta charset="UTF-8" />
   <title>Profile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
-  <link rel="stylesheet" href="/CSS/styles.css" />
+  <link rel="stylesheet" href="./CSS/styles.css">
 </head>
 
-<body class="Profile_section">
-  <div>
-    <h1>Profile</h1>
-    <div>
-      <h2>Profile Details</h2>
+<body>
+  <h1>Profile</h1>
+  <div class="profile_section">
+    <div class="add_details profileDetails">
+      <h2>Edit Profile Details</h2>
       <?php if (isset($user)) : ?>
         <p>
           Hello
@@ -99,7 +105,12 @@ if (isset($_SESSION["user_id"])) {
         <button type="submit">Save</button>
       </form>
     </div>
-    <div>
+    <div class="profileDetails actions">
+      <button type="submit"><a href="family_profile.php">Add Family/Visa</a></button>
+      <button type="submit"><a href="logout.php">Course Selection</a></button>
+      <button type="submit"><a href="logout.php">Log out</a></button>
+    </div>
+    <div class="profile_details  profileDetails">
       <h2>Profile Details</h2>
       <?php if (isset($profile)) : ?>
         <p><?= htmlspecialchars($profile["firstname"]) ?></p>
@@ -116,18 +127,30 @@ if (isset($_SESSION["user_id"])) {
         <p><?= htmlspecialchars($profile["course_1st_choice"]) ?></p>
         <p><?= htmlspecialchars($profile["course_2nd_choice"]) ?></p>
 
+      <?php else : ?>
+
+        <p>No profile details available</p>
+
+      <?php endif; ?>
+      <?php if (isset($fprofile)) : ?>
+        <h2>Profile Details</h2>
+        <p><?= htmlspecialchars($fprofile["visa_type"]) ?></p>
+        <p><?= htmlspecialchars($fprofile["nationality"]) ?></p>
+        <p><?= htmlspecialchars($fprofile["street_number"]) ?></p>
+        <p><?= htmlspecialchars($fprofile["street_name"]) ?></p>
+        <p><?= htmlspecialchars($fprofile["suburb"]) ?></p>
+        <p><?= htmlspecialchars($fprofile["city"]) ?></p>
+        <p><?= htmlspecialchars($fprofile["state"]) ?></p>
+        <p><?= htmlspecialchars($fprofile["country"]) ?></p>
 
       <?php else : ?>
 
-        <p>Profile details here</p>
+        <p>No family profile details available</p>
 
       <?php endif; ?>
 
     </div>
   </div>
-  <button type="submit"><a href="family_profile.php">Add Family/Visa</a></button>
-  <button type="submit"><a href="logout.php">Course Selection</a></button>
-  <button type="submit"><a href="logout.php">Log out</a></button>
 </body>
 
 </html>
