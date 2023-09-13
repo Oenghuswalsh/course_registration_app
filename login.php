@@ -42,14 +42,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8" />
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./CSS/styles.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/styles.css?<?php echo time(); ?>">
 </head>
 
 <body>
 
-    <h1>Login</h1>
 
-    <div class="profile_section">
+    <header>
+        <h1>Login</h1>
         <div class="profileDetails">
             <?php if ($is_invalid) : ?>
                 <em>Invalid login</em>
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <button type="submit">Log in</button>
             </form>
         </div>
-    </div>
+    </header>
 
 </body>
 

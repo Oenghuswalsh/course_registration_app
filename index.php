@@ -22,14 +22,14 @@ if (isset($_SESSION["user_id"])) {
     <meta charset="UTF-8" />
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./CSS/styles.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/styles.css?<?php echo time(); ?>">
 </head>
 
 <body>
 
-    <h1>Home</h1>
 
-    <div class="profile_section">
+    <header>
+        <h1>Home</h1>
         <div class="profileDetails">
             <?php if (isset($user)) : ?>
                 <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
@@ -40,7 +40,7 @@ if (isset($_SESSION["user_id"])) {
                 <a href="signup.html" class="button">sign up</a>
             <?php endif; ?>
         </div>
-    </div>
+    </header>
 
 </body>
 
